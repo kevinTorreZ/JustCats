@@ -1,0 +1,15 @@
+{% if user.is_authenticated %}
+<div class="Carrito">
+    <h1>Carrito nasheee</h1>
+    {% for producto in ProductosCarrito %}
+        id: {{producto.Producto.idProducto}}  
+        Nombre producto: {{producto.Producto.Nombre}}
+        Valor: {{producto.Producto.Valor}}
+        Stock: {{producto.Producto.Stock}}
+        <form method="post">
+            <input type="hidden" value="{{producto.Producto.idProducto}}">
+            <input type="submit" value="Eliminar">
+        </form>
+    {% endfor %} 
+</div>
+{% endif %}
