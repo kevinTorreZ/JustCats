@@ -1,3 +1,4 @@
+{% include 'Componentes/Carrito.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,10 +23,19 @@
                         <a href="/">Inicio</a>
                         <a>Productos</a>
                         <a>Información</a>
+                        {% if user.is_authenticated %}
+                        <a href="/Perfil/">Perfil</a>
+                        {% endif %}
                     </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-login">
+                            <a href="/logout/"><i class="fa-solid fa-right-to-bracket"></i>Desconectarse</a>
+                        </li>
+                    {% else %}
                     <li class="nav-login">
                         <a href="/Login/"><i class="fa-solid fa-right-to-bracket"></i>Iniciar sesión</a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>

@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
 from django.views.generic import CreateView, FormView
+from Principal.models import Usuario
 from django.contrib.auth import authenticate, login,logout
-from Principal.forms import RegisterForm,LoginForm
+from Principal.forms import RegisterForm,LoginForm,ChangeDataUser
 from django.contrib.auth.decorators import login_required
 
 class RegisterView(CreateView):
@@ -41,6 +42,16 @@ def index(request):
 @login_required()
 def Inicio(request):
     return render(request,"inicio.html")
+@login_required()
 def LogoutView(request):
     logout(request)
     return render(request, "logout.html")
+@login_required()
+def perfil(request):
+    instUser = Usuario.objects.get(id=request.user.id)
+    form = ChangeDataUser(instance=instUser)
+    if request.method == "POST":
+        form = ChangeDataUser(request.POST,instance= instUser)
+        if form.is_valid():
+            form.save(commit=True)
+    return render(request,"perfil.html",{'form':form})

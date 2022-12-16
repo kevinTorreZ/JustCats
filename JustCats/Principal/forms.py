@@ -44,7 +44,11 @@ class RegisterForm(forms.ModelForm):
         Usuario.set_password(self.cleaned_data["password"])
         if commit:
             Usuario.save()
-        return Usuario   
+        return Usuario
+class ChangeDataUser(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['username','email','photo']   
 class LoginForm(forms.Form):
     username = forms.CharField(label='',max_length=63, widget=forms.TextInput(attrs={'placeholder': 'Ingrese su usuario'}))
     password = forms.CharField(label='',max_length=63, widget=forms.PasswordInput(attrs={'placeholder': 'Ingrese su contraseña'}))
