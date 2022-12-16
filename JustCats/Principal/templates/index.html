@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicio</title>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
         <div class="header-container">
             <h2>¡Bienvenido a <a id="title-3">Just</a><a id="title-4">Cats</a>!</h2>
             <p>En este sitio web encontraras todo para tu gato</p>
-            <button id="BtnCreate">Crear cuenta</button>
+            <button id="BtnCreate" onclick="window.location.href='/Register/'">Crear cuenta</button>
         </div>
     </div>
     <div class="title-product">
@@ -43,24 +43,27 @@
             <div class="cards-productos">
                 <img src="../static/img/Productos/manzana.jpg">
                 <a id="header-product">Sprinkles Manzana Verde</a>
-                <a id="desc-product">Perlas desodorizantes de arena para gatos mantendrá el área de arena de tu gato con un olor fresco y dulce</a>
+                <a id="desc-product">Perlas desodorizantes de arena para gatos mantendrá el área de arena de tu gato con
+                    un olor fresco y dulce</a>
                 <button id="btnProducto">Ver producto</button>
             </div>
             <div class="cards-productos">
                 <img src="../static/img/Productos/BALL-DOME-600x600.jpg">
                 <a id="header-product">Ball Dome Senses 2.0 – Catit</a>
-                <a id="desc-product">Juguete interactivo, utiliza pilas para que el plato se mueva de forma automatizada para jugar durante horas.</a>
+                <a id="desc-product">Juguete interactivo, utiliza pilas para que el plato se mueva de forma automatizada
+                    para jugar durante horas.</a>
                 <button id="btnProducto">Ver producto</button>
             </div>
             <div class="cards-productos">
                 <img src="../static/img/Productos/tghergrthg-600x600.jpg">
                 <a id="header-product">Rascador Moderno Tigre</a>
-                <a id="desc-product">El rascador moderno tiene una combinación de formas contemporáneas con motivos de diseño</a>
+                <a id="desc-product">El rascador moderno tiene una combinación de formas contemporáneas con motivos de
+                    diseño</a>
                 <button id="btnProducto">Ver producto</button>
             </div>
         </div>
     </div>
-    
+
     {% endif %}
     {% endblock %}
 </body>

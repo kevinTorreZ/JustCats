@@ -38,9 +38,14 @@ class LoginView(FormView):
         return super(LoginView, self).form_invalid(form)
 def index(request):
     return render(request,"index.html")
+def Productos(request):
+    return render(request,"productos.html")
 @login_required()
 def Inicio(request):
     return render(request,"inicio.html")
 def LogoutView(request):
     logout(request)
     return render(request, "logout.html")
+
+def Perfil(request):
+    return render(request, "Perfil.html")
