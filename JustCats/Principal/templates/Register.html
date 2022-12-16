@@ -7,11 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    {% if user.is_authenticated %}
-    <script> window.location.href = '/Inicio/' </script>
+    {% if user.is_authenticated %}   
+    <script> window.location.href = '/Inicio/' </script> 
     {% else %}
-    <a href="/Login/">Login</a>
-    <a href="/Register/">Register</a>
+        <form method="post">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value="Registrarse">
+        </form>
+        <a href="/Login/">Login</a>
     {% endif %}
 </body>
 </html>
