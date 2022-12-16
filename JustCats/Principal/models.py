@@ -77,3 +77,17 @@ class Usuario(AbstractBaseUser):
         "El usuario es un administrador?"
         return self.staff
     objects = UserManager()
+
+class Productos(models.Model):
+    idProducto = models.AutoField(primary_key=True)
+    Valor = models.IntegerField()
+    Stock = models.IntegerField()
+    Nombre = models.CharField(max_length=60)
+    def __str__(self):  
+       return self.idProducto
+class Lista_productos(models.Model):
+    idLista = models.AutoField(primary_key=True)
+    Producto = models.ForeignKey(Productos, on_delete=models.CASCADE)
+    Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    def __str__(self):  
+       return str(self.idLista)

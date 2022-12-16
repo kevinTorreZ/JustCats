@@ -1,10 +1,16 @@
 from django.shortcuts import render,redirect
 from django.views.generic import CreateView, FormView
-from Principal.models import Usuario
+from Principal.models import Usuario,Lista_productos,Productos
 from django.contrib.auth import authenticate, login,logout
 from Principal.forms import RegisterForm,LoginForm,ChangeDataUser
 from django.contrib.auth.decorators import login_required
 
+def MostrarCarrito(request):
+    instUser = Usuario.objects.get(id=request.user.id)
+    ListaProductos = Lista_productos.objects.filter(Usuario=instUser)
+    return ListaProductos
+def BorrarProducto(request,idProducto):
+    pass
 class RegisterView(CreateView):
     form_class = RegisterForm
     template_name = 'Register.html'
@@ -41,7 +47,7 @@ def index(request):
     return render(request,"index.html")
 @login_required()
 def Inicio(request):
-    return render(request,"inicio.html")
+    return render(request,"inicio.html",{'ProductosCarrito':MostrarCarrito(request)})
 @login_required()
 def LogoutView(request):
     logout(request)
@@ -54,4 +60,4 @@ def perfil(request):
         form = ChangeDataUser(request.POST,instance= instUser)
         if form.is_valid():
             form.save(commit=True)
-    return render(request,"perfil.html",{'form':form})
+    return render(request,"perfil.html",{'form':form,'ProductosCarrito':MostrarCarrito(request)})
