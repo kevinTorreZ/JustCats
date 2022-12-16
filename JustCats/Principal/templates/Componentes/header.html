@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% block links %}
+    {% endblock %}
+    {% load static %}
     <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/c1366bcc7f.js" crossorigin="anonymous"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block links %} {% endblock %}
+    <link rel="stylesheet" href="{% static 'header.css' %}">
     <title>{% block title %} {% endblock %}</title>
 </head>
+
 <body>
-    {% block content %} {% endblock %}
+    <header>
+        <nav>
+            <div class="navbar">
+                <ul class="navbar-main">
+                    <li class="logo"><a href="/" id="title-1">Just</a><a  href="/" id="title-2">Cats</a></li>
+                    <li class="main-section"> 
+                        <a href="/">Inicio</a>
+                        <a>Productos</a>
+                        <a>Información</a>
+                    </li>
+                    <li class="nav-login">
+                        <a href="/Login/"><i class="fa-solid fa-right-to-bracket"></i>Iniciar sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
 </body>
+
 </html>

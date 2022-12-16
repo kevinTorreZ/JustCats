@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+body{
+    background-color: #EBEBEB;
+}
+
+.header-content{
+    margin: 0 auto;
+    width: 100%;
+    height: 300px;
+    background-image: url('./img/CATNARANJO.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-container h2, p, button{
+    margin-left: 30px;
+}
+
+.header-container{
+    max-width: 1200px;
+    width: 100%;
+    height: 250px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    font-size: 22px;
+}
+
+
+#title-4{
+    color: black;
+
+}
+
+#BtnCreate{
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    background-color: #FFAA00;
+    border: 0;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-top: 30px;
+    font-weight: 600;
+}
+
+.container-productos{
+    max-width: 1200px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.title-product{
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    height: auto;
+}
+
+.title-product h3{
+    font-family: 'Lato', sans-serif;
+    color: #666;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    font-size: 22px;
+}
+
+
+.cards-productos{
+    width: 250px;
+    height: 350px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+
+#header-product{
+    width: 250px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#price-product{
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
+}
+
+#desc-product{
+    width: 200px;
+    margin: 0 auto;
+    height: 85px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+}
+
+.cards-productos img{
+    width: 230px;
+    height: 150px;
+    background-size: contain;
+    margin: 0 auto;
+    margin-top: 5px;
+    background-position: center;
+}
+
+#btnProducto{
+    cursor: pointer;
+    width: 200px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    margin: 0 auto;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}

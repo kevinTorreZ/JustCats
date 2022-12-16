@@ -1,17 +1,68 @@
+{% extends "Componentes/header.html" %}
+{% load static %}
+{% block links%}
+<link rel="stylesheet" href="{% static 'index.css' %}">
+{% endblock %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    {% block content %}
     {% if user.is_authenticated %}
     <script> window.location.href = '/Inicio/' </script>
     {% else %}
-    <a href="/Login/">Login</a>
-    <a href="/Register/">Register</a>
+    <div class="header-content">
+        <div class="header-container">
+            <h2>¡Bienvenido a <a id="title-3">Just</a><a id="title-4">Cats</a>!</h2>
+            <p>En este sitio web encontraras todo para tu gato</p>
+            <button id="BtnCreate">Crear cuenta</button>
+        </div>
+    </div>
+    <div class="title-product">
+        <h3>Productos agregados recientemente:</h3>
+        <div class="container-productos">
+            <div class="cards-productos">
+                <img src="../static/img/Productos/desodorante-para-gatos.jpg-ps.jpg">
+                <a id="header-product">Desodorante para gatos</a>
+                <a id="desc-product">El desodorante para gatos en spray de Bioline es un excelente producto</a>
+                <button id="btnProducto">Ver producto</button>
+            </div>
+            <div class="cards-productos">
+                <img src="../static/img/Productos/premier-gato.jpg">
+                <a id="header-product">Gatos adultos 7.5Kg</a>
+                <a id="desc-product">Gatos Adultos 7,5 Kg ofrece a su gato adulto una comida especial todos los días</a>
+                <button id="btnProducto">Ver producto</button>
+            </div>
+            <div class="cards-productos">
+                <img src="../static/img/Productos/manzana.jpg">
+                <a id="header-product">Sprinkles Manzana Verde</a>
+                <a id="desc-product">Perlas desodorizantes de arena para gatos mantendrá el área de arena de tu gato con un olor fresco y dulce</a>
+                <button id="btnProducto">Ver producto</button>
+            </div>
+            <div class="cards-productos">
+                <img src="../static/img/Productos/BALL-DOME-600x600.jpg">
+                <a id="header-product">Ball Dome Senses 2.0 – Catit</a>
+                <a id="desc-product">Juguete interactivo, utiliza pilas para que el plato se mueva de forma automatizada para jugar durante horas.</a>
+                <button id="btnProducto">Ver producto</button>
+            </div>
+            <div class="cards-productos">
+                <img src="../static/img/Productos/tghergrthg-600x600.jpg">
+                <a id="header-product">Rascador Moderno Tigre</a>
+                <a id="desc-product">El rascador moderno tiene una combinación de formas contemporáneas con motivos de diseño</a>
+                <button id="btnProducto">Ver producto</button>
+            </div>
+        </div>
+    </div>
+    
     {% endif %}
+    {% endblock %}
 </body>
+
 </html>
