@@ -15,9 +15,6 @@ nav{
     font-family: 'Poppins', sans-serif;
     background-color: #FF7B00;
 }
-.Carrito{
-    color: green;
-}
 .navbar{
     max-width: 1200px;
     margin: 0 auto;
@@ -25,7 +22,9 @@ nav{
     color: white;
     width: 100%;
 }
-
+.Carrito{
+    color: green;
+}
 .navbar-main{
     line-height: 64px;
     padding: 0 10px;

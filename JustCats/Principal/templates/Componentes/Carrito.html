@@ -1,15 +1,45 @@
 {% if user.is_authenticated %}
-<div class="Carrito">
+<div class="Carrito" >
     <h1>Carrito nasheee</h1>
-    {% for producto in ProductosCarrito %}
-        id: {{producto.Producto.idProducto}}  
-        Nombre producto: {{producto.Producto.Nombre}}
-        Valor: {{producto.Producto.Valor}}
-        Stock: {{producto.Producto.Stock}}
-        <form method="post">
-            <input type="hidden" value="{{producto.Producto.idProducto}}">
-            <input type="submit" value="Eliminar">
-        </form>
-    {% endfor %} 
+    <div id="capa">
+        {% for producto in ProductosCarrito %}
+            <div class="Productos" id="{{producto.idLista}}">
+                id: {{producto.Producto.idProducto}}
+                Nombre producto: {{producto.Producto.Nombre}}
+                Valor: {{producto.Producto.Valor}}
+                Stock: {{producto.Producto.Stock}}
+                <input type="button" value="Eliminar" name="EliminarProducto" id="boton">
+            </div>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" value="{{producto.idLista}}">
+    </form>
+    <!-- <script type="text/javascript">
+        $(document).ready(function () {
+            $("#capa").load('/Carrito/');
+            var refreshId = setInterval(function () {
+                $("#capa").load('/Carrito/');
+            }, 1500);
+        });
+    </script> -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#boton").click(function (event) {
+                document.getElementById('html').style.cursor = 'wait'
+                $.ajax({
+                    type: "POST",
+                    url: window.location.href,
+                    data: { csrfmiddlewaretoken: "{{ csrf_token }}", 'idProducto': '{{producto.Producto.idProducto}}' },
+                    success: function () {
+                        document.getElementById('html').style.cursor = 'default'
+                        document.getElementById('boton').disabled = 'False'
+                        document.getElementById('{{producto.idLista}}').remove();
+                    },
+                });
+            });
+        });			
+    </script>
+    {% endfor %}
 </div>
 {% endif %}

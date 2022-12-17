@@ -10,7 +10,10 @@ def MostrarCarrito(request):
     ListaProductos = Lista_productos.objects.filter(Usuario=instUser)
     return ListaProductos
 def BorrarProducto(request,idProducto):
-    pass
+    instUser = Usuario.objects.get(id=request.user.id)
+    instProducto = Productos.objects.get(idProducto=idProducto)
+    eliminar = Lista_productos.objects.get(Usuario=instUser,Producto=instProducto)
+    eliminar.delete()
 class RegisterView(CreateView):
     form_class = RegisterForm
     template_name = 'Register.html'
@@ -47,6 +50,9 @@ def index(request):
     return render(request,"index.html")
 @login_required()
 def Inicio(request):
+    if request.method == "POST":
+        if request.POST.get('idProducto',False) != False:
+                    BorrarProducto(request, request.POST.get('idProducto',False))
     return render(request,"inicio.html",{'ProductosCarrito':MostrarCarrito(request)})
 @login_required()
 def LogoutView(request):
@@ -57,7 +63,15 @@ def perfil(request):
     instUser = Usuario.objects.get(id=request.user.id)
     form = ChangeDataUser(instance=instUser)
     if request.method == "POST":
+        if request.POST.get('idProducto',False) != False:
+            BorrarProducto(request, request.POST.get('idProducto',False))
         form = ChangeDataUser(request.POST,instance= instUser)
         if form.is_valid():
             form.save(commit=True)
     return render(request,"perfil.html",{'form':form,'ProductosCarrito':MostrarCarrito(request)})
+
+def Carrito(request):
+    if request.method == "POST":
+        if request.POST.get('idProducto',False) != False:
+                    BorrarProducto(request, request.POST.get('idProducto',False))
+    return render(request, 'Componentes/Carrito.html',{'ProductosCarrito':MostrarCarrito(request)})
