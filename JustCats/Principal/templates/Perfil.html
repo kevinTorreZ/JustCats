@@ -9,22 +9,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse</title>
+    <title>Iniciar sesión</title>
 </head>
 <body>
     {% block content %}
-    {% if user.is_authenticated %}   
-    <script> window.location.href = '/Inicio/' </script> 
-    {% else %}
-    <div class="divForm">
-        <h1 id="reg-title">Registrarse</h1>
+    {% if user.is_authenticated %}
         <form method="post">
             {% csrf_token %}
-            {{form}}
-            <input type="submit" value="Registrarse">
+            {{form.as_p}}
+            <input type="submit" value="Guardar cambios">
         </form>
-    </div>
     {% endif %}
     {% endblock %}
 </body>
-</html>
+</htm>

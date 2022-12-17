@@ -7,6 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    Saliste.... nashe ugu
+    {% block content %}
+    <script>
+        function redirect(){
+            window.location.href = '/Login/'
+            
+        }
+        const myTimeout = setTimeout(redirect, 1500);
+    </script>
+    {% endblock %}
 </body>
 </html>
